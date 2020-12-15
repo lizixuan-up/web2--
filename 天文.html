@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上知天文</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .log{
+            background-size: 100% 100%;
+            background-image: url(img/log.jpg);
+            background-repeat:no-repeat;
+            background-position: top center;
+            width:1518px;
+            height: 921px;
+        }
+        #one{
+            width:1518px;
+            height: 921px;
+            background-image: url(img/bg3.jpg);
+            background-size: 100% 100%;
+            background-repeat:no-repeat;
+            background-position: top center;
+        }
+        .word1{
+            width:1500px;
+            height:80px;
+            border:none;
+            margin:0 auto;
+            overflow: hidden;
+        }
+        .word2{
+            overflow: hidden; 
+            width: 1500px; 
+            color:white;
+            text-align: center;
+            font-size: 20px;
+            font-family: 楷体;
+            font-weight: bolder;
+        }
+        #two{
+            font-size: 50px;
+            font-style: initial;
+            font-family: 华文隶书;
+            color: whitesmoke;
+            text-align: center;
+        }
+        .log3{
+            width:300px;
+            height:300px;
+            position:absolute;
+            text-align: center;
+            top:30%;
+            left:40%; 
+            
+        }
+        .p2{
+            color: moccasin;
+            font-size: 70px;
+            font-family: 华文彩云;
+            font-weight: bolder;
+        }
+        .a1{
+            margin-top: 50px;
+            width:300px;
+            height:50px;
+            color:lavenderblush;
+            font-weight: bolder;
+            font-size: 25px;
+            font-family: 华文行楷;
+        }
+        .b1{
+            width:300px;
+            height:50px;
+            color:lavenderblush;
+            font-weight: bolder;
+            font-size: 25px;
+            font-family: 华文行楷;
+        }
+        .input1{
+            outline:none;
+            border:0;
+            height:30px;
+            border-width: 0px; /* 边框宽度 */
+	        border-radius: 3px; /* 边框半径 */
+            opacity:0.2; 
+        }
+        .input2{
+            outline:none;
+            border:0;
+            height:30px;
+            border-width: 0px; /* 边框宽度 */
+	        border-radius: 3px; /* 边框半径 */
+            opacity:0.2; 
+        }
+        .p5{
+            font-size: 20px;
+            color:beige;
+            font-family:华文行楷;
+
+        }
+        .p6{
+            font-size: 20px;
+            color:beige;
+            font-family:华文行楷;
+        }
+        .log2{
+            /* position:absolute;
+            text-align: center;
+            top:50%;
+            left:40%;        */
+            width: 270px;
+	        height: 50px; 
+	        border-width: 0px; /* 边框宽度 */
+	        border-radius: 3px; /* 边框半径 */
+	        background: #f3d00ca8;
+	        cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+	        outline: none; /* 不显示轮廓线 */
+	        font-family: 华文琥珀;
+	        color: white;
+	        font-size: 20px;
+            font-weight: bolder;
+        }
+        #imag1{
+            width:226px;
+            float: left;
+            margin-left:60px;
+            margin-top:100px;
+            font-size: 23px;
+            color:beige;
+            font-family:华文行楷;
+        }
+        #imag2{
+            width:757px;
+            float:left;
+            margin-left:80px;
+            margin-top: 50px;
+            font-size: 23px;
+            color:beige;
+            font-family:华文行楷;
+        }
+        #imag3{
+            width:226px;
+            float:left;
+            margin-left:80px;
+            margin-top: 100px;
+            font-size: 23px;
+            color:beige;
+            font-family:华文行楷;
+        }
+    </style>
+</head>
+<body>
+    <div id = "one">
+        <div id = "two"></div>
+        <div id = "three">
+            <div id = "imag1"></div>
+            <div id = "imag2"></div>
+            <div id = "imag3"></div>
+        </div>
+    </div>
+</body>
+<script>
+    var flag = false;
+    var one = document.getElementById("one");
+    var two = document.getElementById("two");
+    var three = document.getElementById("three");
+    var imag1 = document.getElementById("imag1");
+    var imag2 = document.getElementById("imag2");
+    var imag3 = document.getElementById("imag3");
+
+    var out = document.createElement("div");
+    var out1 = document.createElement("div");
+    one.appendChild(out1);
+    out1.setAttribute("class","log");
+    one.appendChild(out);
+    
+    var fore = document.createElement("div");
+
+    //欢迎使用标题
+    var p1 = document.createElement("p");
+    fore.appendChild(p1)
+    p1.innerHTML= "欢迎使用";
+    p1.setAttribute("class","p2");
+    out1.appendChild(fore);
+    fore.setAttribute("class","log3")
+
+    //创建一个表单
+    var login = document.createElement("form");
+    fore.appendChild(login);
+
+    //用户名输入框
+    var a = document.createElement("div");
+    login.appendChild(a);
+    a.setAttribute("class","a1");
+    a.innerHTML = "用户名：";
+    var user = document.createElement("input");
+    user.setAttribute("type","text");
+    user.setAttribute("name","username");
+    user.setAttribute("class","input1");
+    a.appendChild(user);
+
+    var p3 = document.createElement("p");
+    login.appendChild(p3);
+    p3.setAttribute("class","p5");
+
+    //密码输入框
+    var b = document.createElement("div");
+    login.appendChild(b);
+    b.setAttribute("class","b1");
+    b.innerHTML = "密"+ ""+"&nbsp"+"&nbsp" + "码：";
+    var pass = document.createElement("input");
+    pass.setAttribute("type","password");
+    pass.setAttribute("name","pass");
+    pass.setAttribute("class","input2");
+    b.appendChild(pass);
+
+    var p4 = document.createElement("p4");
+    login.appendChild(p4);
+    p4.setAttribute("class","p6");
+
+    user.onfocus = function(){
+        p3.innerHTML="请输入用户名";
+    }
+    user.onblur = function(){
+        if(this.value == ""){
+            p3.innerHTML = "用户名不能为空";
+        }else{
+            p3.innerHTML = "";
+        }
+    }
+    pass.onfocus = function(){
+        p4.innerHTML = "请输入密码";
+    }
+    pass.onblur = function(){
+        if(this.value == ""){
+            p4.innerHTML = "密码不能为空";
+        }else{
+            p4.innerHTML = "";
+        }
+    }
+
+    //提交按钮
+    var btn1 = document.createElement("button");
+    login.appendChild(btn1);
+    btn1.setAttribute("type","submit");
+    btn1.innerHTML = "点击登入";
+    btn1.setAttribute("class","log2");
+
+
+    //上方滚动文字
+    var sildWord = document.createElement("div");
+    var title = document.createElement("p");
+    title.innerHTML="浩瀚的宇宙，往往给予人们神秘的色彩，一望无际的尽头，是否还有人们期待的第二个地球呢?极美的星夜，天上没有一朵浮云，深蓝色的天上，满缀着钻石般的繁星。"+"</br>"+"欢迎来到宇宙的世界！";
+    title.style.marginLeft="0";
+
+    sildWord.setAttribute("class","word1");
+    title.setAttribute("class","word2");
+    out1.appendChild(sildWord);
+    sildWord.appendChild(title);
+
+    var intervalId = setInterval(function(){
+        var marginLeft = parseInt(title.style.marginLeft);
+        if(marginLeft==1200){
+            title.style.marginLeft="-1000";
+            marginLeft=-1000;
+        }
+        title.style.marginLeft = (marginLeft+1)+"px";
+    },10)
+    
+    //but1的点击事件，进入第二个div
+    btn1.onclick = function(){
+        if(user.value=="" || pass.value==""){
+            alert("请输入用户名与密码");
+        }else{
+            if(flag==true){
+                out.innerHTML="";
+                out1.removeChild(out);
+                flag = false; 
+            }
+            one.removeChild(out1);
+
+            two.innerHTML = "想了解跟多的天文知识吗，那就点击下方图片，进入天文的世界吧！";
+            //牧夫天文论坛
+            var mofu = document.createElement("img");
+            mofu.setAttribute("src","img/mofu.jpg");
+            //mofu.setAttribute("style","margin:0 auto");
+            imag1.appendChild(mofu);
+            mofu.onclick = function(){
+                location.href="http://bbs.imufu.cn/";
+            }
+            var intro = document.createElement("p");
+            imag1.appendChild(intro);
+            intro.innerHTML ="&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+ "中国牧夫天文论坛网站成立于1999年3月。是中国大陆成立最早也是规模最大的天文论坛网站，注册用户近16万人（2012年3月），几年来发表文章和帖子百万篇。为中国大陆、港澳台和海外华人天文爱好者所推崇。"+"</br>"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+ "牧夫天文论坛几年来为推动国内天文爱好者的交流合作起到了重大的作用。在论坛上各地区天文爱好者找到了本地的同好，广东、湖南等地的牧夫天文论坛的会员还以论坛为桥梁结社，组织了各种形式的天文爱好者团体。";
+            //中国科学院国家天文台
+            var kexueyuan = document.createElement("img");
+            kexueyuan.setAttribute("src","img/kexueyuan.png");
+            
+            imag2.appendChild(kexueyuan);
+            kexueyuan.onclick = function(){
+                location.href="http://www.bao.ac.cn/";
+            }
+            var intro2 = document.createElement("p");
+            imag2.appendChild(intro2);
+            intro2.innerHTML="&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+ "中国科学院国家天文台成立于2001年4月，系由中国科学院天文领域原四台三站一中心撤并整合而成，包括总部及4个直属单位，总部设在北京，直属单位分别是：云南天文台、南京天文光学技术研究所、新疆天文台和长春人造卫星观测站。"+"</br>"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+ "中国科学院国家天文台主要从事天文观测和理论以及天文高技术研究，并统筹中国天文学科发展布局、大中型观测设备运行和承担国家大科学工程建设项目，负责科研工作的宏观协调、优化资源和人才配置；重点研究领域有：宇宙大尺度结构、星系形成和演化、天体高能和激发过程、恒星形成和演化、太阳磁活动和日地空间环境、天文地球动力学、太阳系天体和人造天体动力学、空间天文观测手段和空间探测、天文新技术和新方法等。"+"</br>"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"截至2014年底，中国科学院国家天文台（总部）共有在职职工1268人（其中科技人员1203人、科技支撑人员399人）；建设有7个中国科学院重点实验室；共有在学研究生495人（其中硕士生265人、博士生230人）、在站博士后58人。2019年5月16日，中国科学院国家天文台宣布，利用嫦娥四号探测数据，证明了月球背面南极-艾特肯盆地存在以橄榄石和低钙辉石为主的深部物质，国际学术期刊《自然》（Nature）在线发布了这一重大发现。";
+            //北京天文馆
+            var beijing = document.createElement("img");
+            beijing.setAttribute("src","img/beijing.jpg");
+            imag3.appendChild(beijing);
+            beijing.onclick = function(){
+                location.href="http://www.bjp.org.cn/";
+            }
+            var intro3 = document.createElement("p");
+            imag3.appendChild(intro3);
+            intro3.innerHTML="&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"北京天文馆是国家级自然科学类专题科学博物馆。主要通过人造星空模拟表演，举办天文知识展览等形式向公众宣传普及天文学知识，北京天文馆已经成为中国向公众。1995年以来，天文馆先后被定名为国家和市、区级科普教育基地、科学与和平教育基地、青少年爱国主义教育基地等，并多次被评为国家和市级“科普先进集体”荣誉称号。"+"</br>"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"北京天文馆馆分A馆和B馆两大部分，总建筑面积约7000平方米。2017年5月18日，北京天文馆重评为国家一级博物馆。";
+        }
+    }
+</script>
+</html>
